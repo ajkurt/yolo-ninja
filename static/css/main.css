@@ -1,0 +1,129 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #444;
+}
+ 
+/*
+ * Create dark grey header with a white logo
+ */
+	
+header {
+	background-color: #2B2B2B;
+	height: 28px;
+	width: 100%;
+	opacity: .9;
+	margin-bottom: 10px;
+}
+ 
+header h1.logo {
+	margin: 0;
+	font-size: 1.9em;
+	color: #fff;
+	text-transform: uppercase;
+	float: left;
+}
+ 
+header h1.logo:hover {
+	color: #fff;
+	text-decoration: none;
+}
+ 
+/*
+ * Center the body content
+ */
+	
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+ 
+div.jumbo {
+	padding: 10px 0 30px 0;
+	background-color: #eeeeee;
+	-webkit-border-radius: 6px;
+ 	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+ 
+h2 {
+	font-size: 2em;
+	margin-top: 10px;
+	text-align: center;
+	letter-spacing: -2px;
+}
+ 
+h3 {
+	font-size: 2em;
+	font-weight: 100;
+	margin-top: 10px;
+	text-align: center;
+	letter-spacing: -1px;
+	color: #999;
+}
+
+p {
+	font-size: 1.3em;
+	font-weight: 100;
+	text-align: center;
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 15px;
+	vertical-align: center;
+	letter-spacing: -1px;
+	color: #666;
+}
+
+a {
+	font-size: 1em;
+	font-weight: 100;
+	text-align: center;
+	color: #666;
+}
+
+button {
+	margin-left: 25px;
+	vertical-align: center;
+	background-color: #eeeeee;
+	-webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px;
+}
+
+/*
+ * Display navigation links inline
+ */
+ 
+.menu {
+	float: right;
+	margin-top: 4px;
+}
+ 
+.menu li {
+	display: inline;
+}
+
+.menu li + li {
+	margin-left: 35px;
+}
+ 
+.menu li a {
+	color: #999;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+/*
+ * Coluns
+ */
+
+.row {
+	margin: 5px;
+}
+
+
+.row h2 {
+    color: #393c3d;
+    font-size: 24px;
+}

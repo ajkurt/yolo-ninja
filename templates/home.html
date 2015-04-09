@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="jumbo">
+		<h2>My Home</h2>
+		<!-- <h3>Controls<h3> -->
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Comandos</h3>
+				<div class="thumbnail">
+					<!--<img src="{{ url_for('static', filename='img/home-001.png') }}">-->
+					<p>PIN 4<button><a href="#" onClick="<? exec ('/var/www/Flask/RaspMate/static/py/teste.py'); ?>"> {{ 4 }} </a></button>
+					<p>PIN 17<button><a href="#" onClick="python /var/www/Flask/RaspMate/static/py/teste.py"> {{ 17 }} </a></button></p>
+					<p>PIN 18<button><a href="#" onClick="sudo python /var/www/Flask/RaspMate/static/py/teste.py"> {{ 18 }} </a></button></p>
+					<p><form action="teste.py">
+						<p style="margin: 2em 20%;">PRESS
+							<input type="submit" value="DATE" >
+						</p>
+					</form></p>
+				</div>
+				<div class="thumbnail">
+					<img src="{{ url_for('static', filename='img/home-002.png') }}">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h3>Cameras Principais</h3>
+				<div class="thumbnail">
+					<img src="{{ url_for('static', filename='img/home-003.png') }}">
+				</div>
+				<div class="thumbnail">
+					<img src="{{ url_for('static', filename='img/home-004.png') }}">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h3>Status Geral</h3>
+				<div class="thumbnail">
+					<img src="{{ url_for('static', filename='img/home-005.png') }}">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
