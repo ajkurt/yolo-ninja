@@ -3,10 +3,12 @@ RaspMate + Flask + I2C
 ==
 
 Install tools nededs:
+
 	$ apt-get install python-requests python-pip python-smbus i2c-tools samba
 	$ pip install flask
 
 Don't start apache on boot:
+
 	$ update-rc.d apache2 remove
 
  Edit /etc/samba/smb.conf:
@@ -23,19 +25,24 @@ Don't start apache on boot:
 	directory mask = 0777
 	
 Start Samba:
+
 	$ update-rc.d samba defaults
 	$ service samba start
-  
+
 Teste I2C:
+
 	$ i2cdetect -y 1
 
 Install Localepurge:
+
 	$ apt-get install localepurge 
   
 Install deborphan:
+
 	$ apt-get install deborphan 
   
 Clean and purge unused locales and orphans:
+
 	$ localepurge
 	$ apt-get remove --purge `deborphan --guess-all`
 	$ apt-get clean
