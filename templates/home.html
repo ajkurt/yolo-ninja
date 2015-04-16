@@ -8,14 +8,18 @@
 				<h3>Comandos</h3>
 				<div class="thumbnail">
 					<!--<img src="{{ url_for('static', filename='img/home-001.png') }}">-->
-					<p>PIN 4<button><a href="#" onClick="<? exec ('/var/www/Flask/RaspMate/static/py/teste.py'); ?>"> {{ 4 }} </a></button>
-					<p>PIN 17<button><a href="#" onClick="python /var/www/Flask/RaspMate/static/py/teste.py"> {{ 17 }} </a></button></p>
-					<p>PIN 18<button><a href="#" onClick="sudo python /var/www/Flask/RaspMate/static/py/teste.py"> {{ 18 }} </a></button></p>
-					<p><form action="teste.py">
-						<p style="margin: 2em 20%;">PRESS
-							<input type="submit" value="DATE" >
-						</p>
-					</form></p>
+					<form action="/home" method="POST">
+						{% if led13 == 0: %}
+							<input type="submit" name="submit" STYLE="color: #ffffff; background-color: #666; -webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px;" value="Led Placa">
+ 						{% else: %}
+ 							<input type="submit" name="submit" STYLE="color: #000000; background-color: #f1900e; -webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px;" value="Led Placa">
+ 						{% endif %}
+					</form>
+					<form action="/home" method="POST">
+						<input type="submit" name="submit" value="Rele 02">
+					</form>
 				</div>
 				<div class="thumbnail">
 					<img src="{{ url_for('static', filename='img/home-002.png') }}">

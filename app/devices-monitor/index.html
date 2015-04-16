@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link rel="stylesheet" href="../../bootstrap-3.3.4-dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../../main.css">
+	<!-- <meta http-equiv="refresh" content="30"> --> <!-- Refresh page every <content> seconds -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content = "width = 420, user-scalable = no" />
+	<title>RaspMate | Raspberry Pi Automation Center</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content = "width = 420, user-scalable = no" />
+	<script type="text/javascript" src="/webiopi.js"></script>
+	<script type="text/javascript">
+		webiopi().ready(function() {
+			$.get("/devices/*", function(data) {
+				var content = $("#content");
+				for (i in data) {
+					if (data[i].type != "Serial") {
+						var device = webiopi().newDevice(data[i].type, data[i].name);
+						if (device) {
+							device.element = $("<div>");
+							content.append(device.element);
+							device.refreshUI();
+						}
+					}
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+		button, .FunctionBasic {
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 class="logo">RaspMate - 0.1</h1>
+			<strong><nav>
+				<ul class="menu">
+					<li><a href="/">Home</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</nav></strong>
+		</div>
+	</header>
+	<div class="container">
+		<div class="jumbo">
+			<h1>Devices Monitor</h1>
+			<div id="content">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -84,35 +84,12 @@ a {
 }
 
 button {
-	margin-left: 25px;
+	width: auto;
 	vertical-align: center;
 	background-color: #eeeeee;
 	-webkit-border-radius: 5px;
  	-moz-border-radius: 5px;
 }
-
-form {
-	font-size: 1.3em;
-	font-weight: 100;
-	text-align: center;
-	margin-left: 15px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-right: 15px;
-	vertical-align: center;
-	letter-spacing: -1px;
-	color: #666;
-}
-
-input {
-	width: auto;
-	vertical-align: center;
-	background-color: #666;
-	color: #ffffff;
-	-webkit-border-radius: 5px;
- 	-moz-border-radius: 5px;
-}
-
 
 /*
  * Display navigation links inline

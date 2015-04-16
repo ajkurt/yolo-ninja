@@ -3,8 +3,22 @@ from time import sleep
 import datetime
 import RPi.GPIO as GPIO ### Oly works on Raspi
 import serial
+import smbus
+led13 = 0
+bus = smbus.SMBus(1) # for RPI version 1, use "bus = smbus.SMBus(0)"
+address = 0x04 # This is the address we setup in the Arduino Program
 app = Flask(__name__)
-ser=serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+
+
+def writeNumber(value):
+	bus.write_byte(address, value)
+	# bus.write_byte_data(address, 0, value)
+	return -1
+
+def readNumber():
+	number = bus.read_byte(address)
+	# number = bus.read_byte_data(address, 1)
+	return number
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -22,26 +36,19 @@ def help():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-	led = ser.write('read-13\n')
-	led13 = ser.readline(1)
-	led13_2 = ser.readline(1)
-	if led13 == '0':
-		led13 = 'Ligar'
-	elif led13 == '1':
-		led13 = 'Desligar'
-	else:
-		pass
-
+	global led13
 	error = None
 	if request.method == 'POST':
 		if request.form['submit'] == "Led Placa":
-			ser.write('change-13\n')
+			writeNumber(13)
+			#sleep(1)
+			led13 = readNumber()
 		elif request.form['submit'] == "Rele 02":
-			ser.write('pinRele2-\n')
+			pass
 		else:
 			error = 'Invalid command. Please try again.'
 			return render_template('inputSerial.html', error=error)
-	return render_template('home.html', led13=led13, led13_2=led13_2)
+	return render_template('home.html', led13=led13)
 
 @app.route('/inputSerial', methods=['GET', 'POST'])
 def inputSerial():	
